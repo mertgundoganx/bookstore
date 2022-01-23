@@ -5,11 +5,11 @@
 
 **MongoDB**
 
-##GET
+## GET
 ````
 /v1/api/books
 ````
-##POST
+## POST
 ````
 {
 "name": "Book Name",
@@ -21,7 +21,7 @@
 
 /v1/api/books
 ````
-##PATCH 
+## PATCH 
 ````
 {
 "name": "Book Name",
@@ -33,7 +33,7 @@
 
 /v1/api/books/:id
 ````
-##DELETE 
+## DELETE 
 ````
 /v1/api/books/:id
 ````
