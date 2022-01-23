@@ -37,3 +37,9 @@
 ````
 /v1/api/books/:id
 ````
+
+## Docker
+````
+docker pull mertgundoganx/node-bookstore-rest-api
+docker run -p 3000:3000 <image-id>
+````
