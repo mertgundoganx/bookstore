@@ -1,26 +1,26 @@
 'use strict';
 const User = require('../model/bookModel');
 
-const getAllBooks = async (req, res) => {
+const getAllBooks = async (req, res, next) => {
     try {
         const result = await User.find({});
         res.status(200).json(result);
     } catch (e) {
-        console.log(e.toString());
+        next(e);
     }
 }
 
-const addBook = async (req, res) => {
+const addBook = async (req, res, next) => {
     try {
         const user = new User(req.body);
         const result = await user.save();
         res.status(200).send(result);
     } catch (e) {
-        console.log(e.toString());
+        next(e);
     }
 }
 
-const updateBook = async (req, res) => {
+const updateBook = async (req, res, next) => {
     try {
         const result = await User.findByIdAndUpdate(req.params.id, req.body, {new: true});
         if (result) {
@@ -29,11 +29,11 @@ const updateBook = async (req, res) => {
             res.status(400).json({"message": "id not found"});
         }
     } catch (e) {
-        console.log(e.toString());
+        next(e);
     }
 }
 
-const deleteBook = async (req, res) => {
+const deleteBook = async (req, res, next) => {
     try {
         const result = await User.findByIdAndDelete(req.params.id);
         if (result) {
@@ -42,7 +42,7 @@ const deleteBook = async (req, res) => {
             res.status(400).json({"message": "id not found"});
         }
     } catch (e) {
-        console.log(e.toString());
+        next(e);
     }
 }
 
